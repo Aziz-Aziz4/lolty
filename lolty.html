@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إلى لولتي 💖</title>
+    <style>
+        /* Importing a beautiful Arabic font from Google */
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 85%;
+            z-index: 10;
+        }
+        
+        h1 {
+            color: #e84393;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            color: #2d3436;
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        
+        button {
+            background-color: #fd79a8;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-family: 'Tajawal', sans-serif;
+            font-weight: bold;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        
+        button:hover {
+            background-color: #e84393;
+            transform: scale(1.05);
+        }
+        
+        #secret-message {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            border-top: 2px dashed #fd79a8;
+            animation: fadeIn 1s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Floating hearts styling */
+        .heart {
+            position: absolute;
+            font-size: 24px;
+            color: #ff7675;
+            animation: floatUp 4s linear infinite;
+            z-index: 1;
+            opacity: 0.6;
+        }
+        
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>لحبيبتي لولتي 💖</h1>
+        <p>برمجت هذا الموقع البسيط علشان اقول لك شي واحد بس...</p>
+        <p>أنتي أجمل صدفة في حياتي .</p>
+        
+        <button id="love-btn" onclick="revealMessage()">اضغطي هنا يا روحي ✨</button>
+
+        <div id="secret-message">
+            <h3>أحبك أكثر مما تتخيلين! ❤️</h3>
+            <p>تراك دايم بقلبي ولايمر يومي الا وانتي اكثر شي يشغل بالي أحبك اليوم وبكره وإلى الأبد.<br>أنتي لولتي وياسعد حظي دامك لولتي .</p>
+        </div>
+    </div>
+
+    <script>
+        function revealMessage() {
+            var message = document.getElementById("secret-message");
+            var btn = document.getElementById("love-btn");
+            
+            // Show the message and hide the button
+            message.style.display = "block";
+            btn.style.display = "none";
+            
+            // Start creating floating hearts
+            createHearts();
+        }
+
+        function createHearts() {
+            setInterval(() => {
+                const heart = document.createElement("div");
+                heart.innerHTML = "❤️";
+                heart.classList.add("heart");
+                
+                // Randomize horizontal position and animation speed
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+                
+                document.body.appendChild(heart);
+                
+                // Remove the heart after 5 seconds so the screen doesn't get cluttered
+                setTimeout(() => {
+                    heart.remove();
+                }, 5000);
+            }, 300); // Creates a new heart every 300 milliseconds
+        }
+    </script>
+</body>
+</html> 
